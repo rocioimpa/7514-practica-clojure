@@ -23,13 +23,16 @@
 ;; 3) Definir la función sig-mul-10 que reciba un número entero y 
 ;; devuelva el primer múltiplo de 10 que lo supere.
 (defn round-floor [numero] (int (Math/floor numero)))
-(defn sig-mul-10 [numero] (* 10 (+ (round-floor(/ numero 10)) 1)))
+(defn sig-mul-10 [numero] (* 10 (+ (round-floor (/ numero 10)) 1)))
 
 ;; Tambien puedo hacerlo con ceil y no necesito sumarle 1
 (defn round-ceil [numero] (int (Math/ceil numero)))
-(defn sig-mul-10 [numero] (* 10 (round-ceil(/ numero 10))))
+(defn sig-mul-10 [numero] (* 10 (round-ceil (/ numero 10))))
 
 ;; 5) Definir la función capicua? que reciba un número entero no negativo de hasta 5
 ;; dígitos y devuelva true si el número es capicúa; si no, false.
 (defn capicua? [numero] (if (and (integer? numero) (< numero 100000) (>= numero 0)) (if (= (seq (str numero)) (into '() (seq (str numero)))) true false) "invalid number"))
+
+; 17.Definir una función para obtener el elemento central de una lista.
+(defn elementoCentral [lista] (get lista(int (Math/floor (/(count lista) 2))) ))
 
